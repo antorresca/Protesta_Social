@@ -4,15 +4,64 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ADDF9B"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <LinearLayout
+        android:layout_width="381dp"
+        android:layout_height="575dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="184dp"/>
+    <Button
+        android:id="@+id/btn_mapa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5px"
+        android:layout_marginTop="20px"
+        android:layout_marginRight="5px"
+        android:background="@color/teal_200"
+        android:text="Mapa"
+        app:backgroundTint="#00BCD4" />
+
+    <Button
+        android:id="@+id/btn_arengas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5px"
+        android:layout_marginTop="15px"
+        android:layout_marginRight="5px"
+        android:background="#E91E63"
+        android:text="Arengas"
+        app:backgroundTint="#E91E63" />
+
+    <Button
+        android:id="@+id/btn_panico"
+        android:layout_width="match_parent"
+        android:layout_height="149dp"
+        android:layout_marginLeft="5px"
+        android:layout_marginTop="15px"
+        android:layout_marginRight="5px"
+        android:background="#FF0000"
+        android:text="Boton De Panico"
+        app:backgroundTint="#FF0000" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    </LinearLayout>
+
 
 </android.support.constraint.ConstraintLayout>
