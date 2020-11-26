@@ -10,4 +10,11 @@ public class Lugares {
         Lugares = lugares;
     }
 
+    public ArrayList<Lugar> getLugares() {
+        return Lugares;
+    }
+
+    public void setLugares(ArrayList<Lugar> lugares) {
+        Lugares = lugares;
+    }
 }

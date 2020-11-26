@@ -1,9 +1,7 @@
 package com.pruebas.protesta_social.ui;
 
 import androidx.fragment.app.FragmentActivity;
-
 import android.os.Bundle;
-
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -11,10 +9,13 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.pruebas.protesta_social.R;
+import com.pruebas.protesta_social.objetos.Lugar;
+import com.pruebas.protesta_social.objetos.Lugares;
 
 public class Mapa extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    Lugares lugares1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,20 +39,20 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
+        lugares1.setLugares(MainActivity.Guardar_lugares());
         // Add a marker in Sydney and move the camera
-        LatLng HUN = new LatLng(4.6486159	,-74.0958465);
-        mMap.addMarker(new MarkerOptions().position(HUN).title("Hospital Universitario Nacional"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(HUN));
+        for(Lugar a: lugares1.getLugares()){
+            double lat = a.getCoordenadas().get(0);
+            double lon = a.getCoordenadas().get(1);
+            LatLng l = new LatLng(lat,lon);
+            mMap.addMarker(new MarkerOptions().position(l).title(a.getNombre()));
+        }
 
-        LatLng UN = new LatLng(4.6381938	,-74.0840464);
-        mMap.addMarker(new MarkerOptions().position(UN).title("Universidad Nacional"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(UN));
-
-        LatLng PB = new LatLng(4.5981206	,-74.0760435);
-        mMap.addMarker(new MarkerOptions().position(PB).title("Plaza de Bolivar"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(PB));
-
+        Lugar B = new Lugar();
+        double lat = B.getCoordenadas().get(0);
+        double lon = B.getCoordenadas().get(1);
+        LatLng Bog = new LatLng(lat,lon);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(Bog));
 
     }
 }

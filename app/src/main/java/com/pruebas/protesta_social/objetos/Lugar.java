@@ -8,8 +8,9 @@ public class Lugar {
     private String Nombre;
     private boolean Estado;
 
-    public Lugar(ArrayList<Double> coordenadas, String nombre, boolean estado) {
-        Coordenadas = coordenadas;
+    public Lugar(double Latitud, double Longitud, String nombre, boolean estado) {
+        Coordenadas.add(Latitud);
+        Coordenadas.add(Longitud);
         Nombre = nombre;
         Estado = estado;
     }
@@ -33,8 +34,9 @@ public class Lugar {
         return Coordenadas;
     }
 
-    public void setCoordenadas(ArrayList<Double> coordenadas) {
-        Coordenadas = coordenadas;
+    public void setCoordenadas(double Latitud, double Longitud) {
+        Coordenadas.add(Latitud);
+        Coordenadas.add(Longitud);
     }
 
     public String getNombre() {
