@@ -1,7 +1,9 @@
-package com.pruebas.protesta_social;
+package com.pruebas.protesta_social.ui;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.pruebas.protesta_social.R;
 
 public class arengas extends AppCompatActivity {
 

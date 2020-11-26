@@ -1,11 +1,13 @@
-package com.pruebas.protesta_social;
+package com.pruebas.protesta_social.ui;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.WindowManager;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.pruebas.protesta_social.R;
 
 public class pantalla_carga extends AppCompatActivity {
 

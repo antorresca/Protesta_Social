@@ -30,11 +30,11 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".Mapa"
+            android:name=".ui.Mapa"
             android:label="@string/title_activity_mapa"></activity>
-        <activity android:name=".arengas" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".pantalla_carga">
+        <activity android:name=".ui.arengas" />
+        <activity android:name=".ui.MainActivity" />
+        <activity android:name=".ui.pantalla_carga">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
