@@ -51,5 +51,6 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback {
         mMap.addMarker(new MarkerOptions().position(PB).title("Plaza de Bolivar"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(PB));
 
+
     }
 }
