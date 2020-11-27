@@ -7,8 +7,8 @@ public class Punto_De_Encuentro extends Lugar{
     private String Hora;
     private String Sindicato;
 
-    public Punto_De_Encuentro(ArrayList<Double> coordenadas, String nombre, String hora, String sindicato) {
-        super(coordenadas, nombre);
+    public Punto_De_Encuentro(double Latitud, double Longitud, String nombre, String hora, String sindicato) {
+        super(Latitud, Longitud, nombre);
         Hora = hora;
         Sindicato = sindicato;
     }

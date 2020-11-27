@@ -6,8 +6,13 @@ public class Centro_De_Salud extends Lugar{
 
     private String Telefono;
 
-    public Centro_De_Salud(ArrayList<Double> coordenadas, String nombre, String telefono) {
-        super(coordenadas, nombre);
+    public Centro_De_Salud(double Latitud, double Longitud, String nombre, boolean estado, String telefono) {
+        super(Latitud, Longitud, nombre, estado);
+        Telefono = telefono;
+    }
+
+    public Centro_De_Salud(double Latitud, double Longitud, String nombre, String telefono) {
+        super(Latitud, Longitud, nombre);
         Telefono = telefono;
     }
 
