@@ -39,8 +39,8 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        lugares1.setLugares(MainActivity.Guardar_lugares());
-        // Add a marker in Sydney and move the camera
+
+        lugares1.setLugares(MainActivity.Guardar_lugares());  // Add a marker in Sydney and move the camera
         for(Lugar a: lugares1.getLugares()){
             double lat = a.getCoordenadas().get(0);
             double lon = a.getCoordenadas().get(1);
