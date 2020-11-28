@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnMapa, btnArengas, btnPanico;
 
+    String Saludo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
