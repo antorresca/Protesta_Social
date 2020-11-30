@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.maps.model.LatLng;
 import com.pruebas.protesta_social.R;
 import com.pruebas.protesta_social.objetos.Lugar;
 import com.pruebas.protesta_social.objetos.Lugares;
@@ -40,15 +42,20 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public static ArrayList<Lugar> Guardar_lugares(){
+    public static ArrayList<Lugar> Guardar_lugares() {
         ArrayList<Lugar> lugares_guardados = new ArrayList<Lugar>();
-        final Lugar UN = new Lugar(4.6381938,-74.0840464,"Universidad Nacional de Colombia",true);
-        Lugar HUN = new Lugar(4.6486159,-74.0958465,"Hospita Universitario Nacional",true);
-        Lugar PB = new Lugar(4.5981206,-74.0760435,"Plaza de Bolivar",true);
+        final Lugar UN = new Lugar(4.6381938, -74.0840464, "Universidad Nacional de Colombia", true);
+        Lugar HUN = new Lugar(4.6486159, -74.0958465, "Hospita Universitario Nacional", true);
+        Lugar PB = new Lugar(4.5981206, -74.0760435, "Plaza de Bolivar", true);
         lugares_guardados.add(UN);
         lugares_guardados.add(HUN);
         lugares_guardados.add(PB);
         return lugares_guardados;
+    }
+
+    public static LatLng Crear(){
+        Lugar b = new Lugar();
+        return b.getCoordenadas();
     }
 
 

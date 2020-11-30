@@ -4,17 +4,21 @@ import java.util.ArrayList;
 
 public class Lugares {
 
-    private ArrayList<Lugar> Lugares;
+    private ArrayList<Lugar> Luga;
+
+    public Lugares(){
+        Luga = Luga;
+    }
 
     public Lugares(ArrayList<Lugar> lugares) {
-        Lugares = lugares;
+        Luga = lugares;
     }
 
     public ArrayList<Lugar> getLugares() {
-        return Lugares;
+        return Luga;
     }
 
     public void setLugares(ArrayList<Lugar> lugares) {
-        Lugares = lugares;
+        Luga = lugares;
     }
 }

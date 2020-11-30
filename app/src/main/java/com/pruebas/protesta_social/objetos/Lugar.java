@@ -1,23 +1,23 @@
 package com.pruebas.protesta_social.objetos;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.util.ArrayList;
 
 public class Lugar {
 
-    private ArrayList<Double> Coordenadas;
     private String Nombre;
     private boolean Estado;
+    private LatLng coordenadas;
 
     public Lugar(double Latitud, double Longitud, String nombre, boolean estado) {
-        Coordenadas.add(Latitud);
-        Coordenadas.add(Longitud);
+        coordenadas = new LatLng(Latitud, Longitud);
         Nombre = nombre;
         Estado = estado;
     }
 
     public Lugar() {
-        Coordenadas.add(4.6533326);
-        Coordenadas.add(-74.083652);
+        coordenadas = new LatLng(4.6533326,-74.083652);
         Nombre = "Bogota";
         Estado = true;
     }
@@ -30,13 +30,12 @@ public class Lugar {
         Estado = estado;
     }
 
-    public ArrayList<Double> getCoordenadas() {
-        return Coordenadas;
+    public void setCoordenadas(double Latitud, double Longitud) {
+        coordenadas = new LatLng(Latitud, Longitud);
     }
 
-    public void setCoordenadas(double Latitud, double Longitud) {
-        Coordenadas.add(Latitud);
-        Coordenadas.add(Longitud);
+    public LatLng getCoordenadas() {
+        return coordenadas;
     }
 
     public String getNombre() {
@@ -49,6 +48,6 @@ public class Lugar {
 
     @Override
     public String toString() {
-        return Nombre+" \nCoordenadas: Lat"+Coordenadas.get(0).toString()+" Coordenadas: Long"+Coordenadas.get(1).toString()+"\nEstado:"+Estado;
+        return Nombre+" \nCoordenadas:"+coordenadas.toString()+"\nEstado:"+Estado;
     }
 }

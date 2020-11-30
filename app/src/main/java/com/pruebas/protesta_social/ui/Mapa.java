@@ -7,15 +7,18 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.pruebas.protesta_social.R;
+import com.pruebas.protesta_social.objetos.Lugar;
 import com.pruebas.protesta_social.objetos.Lugares;
 
 import java.util.ArrayList;
 
+
 public class Mapa extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    Lugares lugares1;
+    Lugares lugares1 = new Lugares();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +42,21 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback {
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
+
+        Lugar B = new Lugar();
+        LatLng a = B.getCoordenadas();
+
+        lugares1.setLugares(MainActivity.Guardar_lugares());
+
         mMap = googleMap;
 
-        LatLng Bog = new LatLng(4.6533326,-74.083652);
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(Bog));
+        for(Lugar l : lugares1.getLugares()){
+            LatLng g = l.getCoordenadas();
+            mMap.addMarker(new MarkerOptions().position(g).title(l.getNombre()));
+        }
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(a,10));
 
     }
+
 }
