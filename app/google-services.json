@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "320771927922",
+    "firebase_url": "https://pprotestasocial.firebaseio.com",
+    "project_id": "pprotestasocial",
+    "storage_bucket": "pprotestasocial.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:320771927922:android:108b5d3f0ce48e35f8b7eb",
+        "android_client_info": {
+          "package_name": "com.pruebas.protesta_social"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "320771927922-39p1noslp7hujpom9ebmacbeufh4q1od.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pruebas.protesta_social",
+            "certificate_hash": "08e28f6cfe8341c75b4a2e1ecf92fb690973eda6"
+          }
+        },
+        {
+          "client_id": "320771927922-kjog72sqdtn0outntjupkdo4nlsghlbg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc9Sag2UnVaiv_CPjCU_Hc8z99Fe9Vtxc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "320771927922-kjog72sqdtn0outntjupkdo4nlsghlbg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
