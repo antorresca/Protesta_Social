@@ -11,8 +11,8 @@ public class Centro_De_Salud extends Lugar{
         Telefono = telefono;
     }
 
-    public Centro_De_Salud(double Latitud, double Longitud, String nombre, String telefono) {
-        super(Latitud, Longitud, nombre);
+    public Centro_De_Salud(double Latitud, double Longitud, String nombre, String telefono, boolean estado) {
+        super(Latitud, Longitud, nombre, estado);
         Telefono = telefono;
     }
 
