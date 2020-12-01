@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
         lugares_guardados.add(UD);
         lugares_guardados.add(UP);
         lugares_guardados.add(CMC);
+        lugares_guardados.add(SED);
         return lugares_guardados;
     }
 

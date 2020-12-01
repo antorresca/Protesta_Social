@@ -36,7 +36,7 @@ public class Punto_De_Encuentro extends Lugar{
 
     @Override
     public String toString() {
-        return "Punto_De_Encuentro Hora=" + Hora +", Sindicato='" + Sindicato;
+        return "Encuentro "+ Hora +" "+Sindicato;
     }
     }
 

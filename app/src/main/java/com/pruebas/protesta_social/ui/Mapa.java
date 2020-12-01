@@ -52,10 +52,14 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback {
 
         for(Lugar l : lugares1.getLugares()){
             LatLng g = l.getCoordenadas();
-            mMap.addMarker(new MarkerOptions().position(g).title(l.getNombre()));
+            try{
+                mMap.addMarker(new MarkerOptions().position(g).snippet(l.toString()).title(l.getNombre()));
+            }catch (Exception e){
+                mMap.addMarker(new MarkerOptions().position(g).title(l.getNombre()));
+            }
         }
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(a,10));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(a,15));
 
     }
 

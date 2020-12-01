@@ -25,8 +25,6 @@ public class Centro_De_Salud extends Lugar{
 
     @Override
     public String toString() {
-        return "Centro_De_Salud{" +
-                "Telefono='" + Telefono + '\'' +
-                '}';
+        return "Centro De Salud Tel=" + Telefono;
     }
 }
