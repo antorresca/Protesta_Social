@@ -42,7 +42,13 @@
         android:text="Arengas"
         app:backgroundTint="#E91E63" />
 
-    <Button
+        <Button
+            android:id="@+id/btnChat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chat" />
+
+        <Button
         android:id="@+id/btn_panico"
         android:layout_width="match_parent"
         android:layout_height="149dp"

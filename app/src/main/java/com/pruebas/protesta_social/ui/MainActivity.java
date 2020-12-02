@@ -18,7 +18,7 @@ import static com.pruebas.protesta_social.ui.Login.*;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btnMapa, btnArengas, btnPanico;
+    private Button btnMapa, btnArengas, btnPanico, btnChat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnMapa = (Button) findViewById(R.id.btn_mapa);
         btnArengas = (Button) findViewById(R.id.btn_arengas);
+        btnChat = (Button) findViewById(R.id.btnChat);
 
         Toast.makeText(MainActivity.this,"Hola "+NombreDeUsuario,Toast.LENGTH_SHORT).show();
 
@@ -42,6 +43,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),Mapa.class);
+                startActivity(intent);
+            }
+        });
+
+        btnChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),Chat.class);
                 startActivity(intent);
             }
         });
