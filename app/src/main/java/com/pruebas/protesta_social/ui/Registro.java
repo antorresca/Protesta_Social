@@ -47,7 +47,7 @@ public class Registro extends AppCompatActivity {
                 String Usuario = UsuarioI.getText().toString();
                 String Password = PassI.getText().toString();
                 if (Name.equals("") || Usuario.equals("") || Password.equals("")) {
-                    Validacion();
+                    Validacion(Name,Usuario,Password);
                 } else {
                     usuarios.child("Persona").child(Usuario).addValueEventListener(new ValueEventListener() {
                         @Override
@@ -101,10 +101,7 @@ public class Registro extends AppCompatActivity {
 
     }
 
-    private void Validacion() {
-        String Nombre = NombreI.getText().toString();
-        String Usuario = UsuarioI.getText().toString();
-        String Password = PassI.getText().toString();
+    private void Validacion(String Nombre, String Usuario, String Password) {
 
         if (Nombre.equals("")) {
             NombreI.setError("Requerido");

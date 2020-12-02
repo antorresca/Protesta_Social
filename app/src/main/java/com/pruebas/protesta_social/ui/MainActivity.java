@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.maps.model.LatLng;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.pruebas.protesta_social.R;
 import com.pruebas.protesta_social.objetos.Centro_De_Salud;
 import com.pruebas.protesta_social.objetos.Lugar;
@@ -17,7 +19,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnMapa, btnArengas, btnPanico;
+    private Button btnMapa, btnArengas, btnPanico;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
