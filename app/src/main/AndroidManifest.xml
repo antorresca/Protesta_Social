@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Protesta_Social">
-        <activity android:name=".ui.Ingresar"></activity>
+        <activity android:name=".ui.Chat"></activity>
+        <activity android:name=".ui.Ingresar" />
         <activity android:name=".ui.Registro" />
         <activity android:name=".ui.Login" />
         <!--
