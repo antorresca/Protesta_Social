@@ -2,20 +2,19 @@ package com.pruebas.protesta_social.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
+import static com.pruebas.protesta_social.ui.Ingresar.*;
+import static com.pruebas.protesta_social.ui.Login.*;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.pruebas.protesta_social.R;
 import com.pruebas.protesta_social.objetos.*;
@@ -23,7 +22,8 @@ import com.pruebas.protesta_social.objetos.*;
 public class Registro extends AppCompatActivity {
 
     private Button btnBienvenido;
-    private EditText NombreI, UsuarioI, PassI;
+    private EditText NombreI, PassI;
+    public static EditText UsuarioI;
     private FirebaseDatabase base;
     private DatabaseReference referencia;
 
@@ -44,12 +44,12 @@ public class Registro extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String Name = NombreI.getText().toString();
-                String Usuario = UsuarioI.getText().toString();
+                NombreDeUsuario = UsuarioI.getText().toString();
                 String Password = PassI.getText().toString();
-                if (Name.equals("") || Usuario.equals("") || Password.equals("")) {
-                    Validacion(Name,Usuario,Password);
+                if (Name.equals("") || NombreDeUsuario.equals("") || Password.equals("")) {
+                    Validacion(Name,NombreDeUsuario,Password);
                 } else {
-                    usuarios.child("Persona").child(Usuario).addValueEventListener(new ValueEventListener() {
+                    usuarios.child("Persona").child(NombreDeUsuario).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if(snapshot.exists()){

@@ -2,25 +2,24 @@ package com.pruebas.protesta_social.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
+import static com.pruebas.protesta_social.ui.Registro.*;
+import static com.pruebas.protesta_social.ui.Login.*;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.pruebas.protesta_social.R;
-import com.pruebas.protesta_social.objetos.Persona;
 
 public class Ingresar extends AppCompatActivity {
 
-    private EditText User,Pass;
+    public static EditText User,Pass;
     private Button Bienvenida;
     private DatabaseReference referencia;
 
@@ -36,7 +35,7 @@ public class Ingresar extends AppCompatActivity {
         Bienvenida.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String NombreDeUsuario = User.getText().toString();
+                NombreDeUsuario = User.getText().toString();
                 String Password = Pass.getText().toString();
                 if(NombreDeUsuario.equals("") || Password.equals("")){
                     Validar(NombreDeUsuario,Password);

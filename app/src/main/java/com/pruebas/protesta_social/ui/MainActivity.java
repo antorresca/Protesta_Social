@@ -7,20 +7,18 @@ import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.pruebas.protesta_social.R;
 import com.pruebas.protesta_social.objetos.Centro_De_Salud;
 import com.pruebas.protesta_social.objetos.Lugar;
-import com.pruebas.protesta_social.objetos.Lugares;
 import com.pruebas.protesta_social.objetos.Punto_De_Encuentro;
-
 import java.util.ArrayList;
+import static com.pruebas.protesta_social.ui.Ingresar.*;
+import static com.pruebas.protesta_social.ui.Registro.*;
+import static com.pruebas.protesta_social.ui.Login.*;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button btnMapa, btnArengas, btnPanico;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
         btnMapa = (Button) findViewById(R.id.btn_mapa);
         btnArengas = (Button) findViewById(R.id.btn_arengas);
+
+        Toast.makeText(MainActivity.this,"Hola "+NombreDeUsuario,Toast.LENGTH_SHORT).show();
 
         btnArengas.setOnClickListener(new View.OnClickListener() {
             @Override
