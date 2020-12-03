@@ -11,6 +11,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -30,6 +31,7 @@ import com.pruebas.protesta_social.R;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -43,7 +45,6 @@ public class Chat extends AppCompatActivity {
     private RecyclerView Mensajes;
     private List<Mensaje> ListMensajes;
     private Contenedor ContenedorMsjs;
-    private String G;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +66,6 @@ public class Chat extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 CodigoDelGrupo = snapshot.getValue().toString();
-                Toast.makeText(Chat.this,CodigoDelGrupo,Toast.LENGTH_SHORT).show();
                 try{
                     Titulo.setText("Codigo Grupo : "+CodigoDelGrupo);
                 }catch (Exception e){
@@ -77,8 +77,7 @@ public class Chat extends AppCompatActivity {
             }
         });
 
-        FirebaseFirestore.getInstance().collection(CodigoDelGrupo)
-                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+        FirebaseFirestore.getInstance().collection(CodigoDelGrupo).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                 for(DocumentChange mDocumentChange : value.getDocumentChanges()){
@@ -101,7 +100,7 @@ public class Chat extends AppCompatActivity {
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm");
                     String HoraActual = simpleDateFormat.format(new Date());
                     mensaje.setHora(HoraActual);
-                    FirebaseFirestore.getInstance().collection("Chat").add(mensaje);
+                    FirebaseFirestore.getInstance().collection(CodigoDelGrupo).add(mensaje);
                     Msj.setText("");
                 }
             }
