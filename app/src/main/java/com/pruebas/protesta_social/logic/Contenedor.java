@@ -13,12 +13,14 @@ import com.pruebas.protesta_social.objetos.Mensaje;
 
 import java.util.List;
 
+import static com.pruebas.protesta_social.ui.Login.NombreDeUsuario;
+
 public class Contenedor extends RecyclerView.Adapter<Contenedor.ContendorDeMensaje> {
 
-    private List<Mensaje> ListMensajes;
+    private List<Mensaje> LstMensajes;
 
     public Contenedor(List<Mensaje> listMensajes) {
-        ListMensajes = listMensajes;
+        this.LstMensajes = listMensajes;
     }
 
     @NonNull
@@ -30,25 +32,25 @@ public class Contenedor extends RecyclerView.Adapter<Contenedor.ContendorDeMensa
 
     @Override
     public void onBindViewHolder(@NonNull ContendorDeMensaje holder, int position) {
-        holder.Nombre.setText(ListMensajes.get(position).getName());
-        holder.Mensaje.setText(ListMensajes.get(position).getMensaje());
-        holder.Hora.setText(ListMensajes.get(position).getHora());
+        holder.Nombre.setText(LstMensajes.get(position).getName());
+        holder.Mensaje.setText(LstMensajes.get(position).getMensaje());
+        holder.Hora.setText(LstMensajes.get(position).getHora());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return LstMensajes.size();
     }
 
     class ContendorDeMensaje extends RecyclerView.ViewHolder{
 
-        private TextView Nombre,Mensaje,Hora;
+        private TextView Mensaje,Hora,Nombre;
 
         public ContendorDeMensaje(@NonNull View itemView) {
             super(itemView);
-            Nombre = (TextView) itemView.findViewById(R.id.Nombre_msj);
-            Mensaje = (TextView) itemView.findViewById(R.id.Mensaje_msj);
-            Mensaje = (TextView) itemView.findViewById(R.id.Hora_msj);
+            Nombre  = itemView.findViewById(R.id.Nombre_msj);
+            Mensaje = itemView.findViewById(R.id.Mensaje_msj);
+            Hora = itemView.findViewById(R.id.Hora_msj);
 
         }
     }

@@ -14,7 +14,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Protesta_Social">
+        android:theme="@style/Theme.Protesta_Social"
+        android:name="androidx.multidex.MultiDexApplication" >
         <activity android:name=".ui.Chat"></activity>
         <activity android:name=".ui.Ingresar" />
         <activity android:name=".ui.Registro" />
