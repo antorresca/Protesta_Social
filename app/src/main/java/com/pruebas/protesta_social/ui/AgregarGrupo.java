@@ -51,7 +51,7 @@ public class AgregarGrupo extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if(snapshot.exists()){
-                                asignacion.child(NombreDeUsuario).child("Grupo").setValue(StCodigo);
+                                asignacion.child("Persona").child(NombreDeUsuario).child("grupo").setValue(StCodigo);
                                 Intent intent = new Intent(AgregarGrupo.this,Chat.class);
                                 startActivity(intent);
                             }else{

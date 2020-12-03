@@ -6,21 +6,18 @@ public class Principal {
 
     public static String CrearGrupo(String palabra){
         int numero = 0;
+        char[] letras = palabra.toCharArray();
         String Salida = "";
         char[] vocales = {'a','e','i','o','u'};
-        for(char letra : palabra.toCharArray()){
-            try{
-                numero = Integer.valueOf(letra);
-            }catch(Exception e){
+        for(char letra : letras){
                 for(char y : vocales){
                     if(letra == y){
                         numero = 1;
                         break;
                     }
                 }
-            }
             Salida += String.valueOf(numero);
         }
-        return Salida;
+        return letras[0]+Salida+letras.length;
     }
 }

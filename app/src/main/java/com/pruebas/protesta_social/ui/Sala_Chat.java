@@ -20,7 +20,7 @@ import static com.pruebas.protesta_social.ui.Login.NombreDeUsuario;
 public class Sala_Chat extends AppCompatActivity {
     private Button Crear, Codigo;
     private DatabaseReference datos;
-    private String Group;
+    public static String CodigoDelGrupo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +34,14 @@ public class Sala_Chat extends AppCompatActivity {
         Crear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Group = Principal.CrearGrupo(NombreDeUsuario);
-                Grupo g = new Grupo(Group,NombreDeUsuario);
-                datos.child("Persona").child(NombreDeUsuario).child("Grupo").setValue(g.getCodigo());
+                CodigoDelGrupo = Principal.CrearGrupo(NombreDeUsuario).toString();
+                Grupo g = new Grupo();
+                g.setCodigo(CodigoDelGrupo);
+                g.setUsuario(NombreDeUsuario);
+                datos.child("Persona").child(NombreDeUsuario).child("grupo").setValue(g.getCodigo());
                 datos.child("Grupo").child(g.getCodigo()).setValue(g);
                 Toast.makeText(Sala_Chat.this,"Grupo creado",Toast.LENGTH_SHORT).show();
-                FirebaseFirestore.getInstance().collection(Group);
+                FirebaseFirestore.getInstance().collection(CodigoDelGrupo);
                 Intent intent = new Intent(Sala_Chat.this,Chat.class);
                 startActivity(intent);
             }

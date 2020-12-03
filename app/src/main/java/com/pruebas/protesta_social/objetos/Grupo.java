@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Grupo {
 
     private String  Codigo;
-    private ArrayList<String> Usuarios;
+    private ArrayList<String> Usuarios = new ArrayList<String>();
 
     public Grupo() {
     }

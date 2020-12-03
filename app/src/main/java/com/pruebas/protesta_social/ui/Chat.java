@@ -1,12 +1,16 @@
 package com.pruebas.protesta_social.ui;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
+import static com.pruebas.protesta_social.ui.Sala_Chat.CodigoDelGrupo;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -39,6 +43,7 @@ public class Chat extends AppCompatActivity {
     private RecyclerView Mensajes;
     private List<Mensaje> ListMensajes;
     private Contenedor ContenedorMsjs;
+    private String G;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,10 +61,23 @@ public class Chat extends AppCompatActivity {
         Mensajes.setAdapter(ContenedorMsjs);
         Mensajes.setHasFixedSize(true);
         Comunicador.setText(NombreDeUsuario);
-        Titulo.setText("Codigo Grupo : "+FirebaseDatabase.getInstance().getReference()
-                .child(NombreDeUsuario).child("Grupo").toString());
+        FirebaseDatabase.getInstance().getReference().child("Persona").child(NombreDeUsuario).child("grupo").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                CodigoDelGrupo = snapshot.getValue().toString();
+                Toast.makeText(Chat.this,CodigoDelGrupo,Toast.LENGTH_SHORT).show();
+                try{
+                    Titulo.setText("Codigo Grupo : "+CodigoDelGrupo);
+                }catch (Exception e){
+                    Titulo.setText("Error");
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
 
-        FirebaseFirestore.getInstance().collection(FirebaseDatabase.getInstance().getReference().child(NombreDeUsuario).child("Grupo").toString())
+        FirebaseFirestore.getInstance().collection(CodigoDelGrupo)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {

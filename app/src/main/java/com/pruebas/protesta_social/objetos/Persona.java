@@ -11,14 +11,14 @@ public class Persona {
         Usuario = usuario;
         Password = password;
         Nombre = nombre;
-        Grupo = "";
+        Grupo = "No";
     }
 
     public Persona() {
         Usuario = "";
         Password = "";
         Nombre = "";
-        Grupo = "";
+        Grupo = "No";
     }
 
     public String getGrupo() {

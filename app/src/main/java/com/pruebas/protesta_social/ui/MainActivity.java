@@ -5,10 +5,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.pruebas.protesta_social.R;
 import com.pruebas.protesta_social.objetos.Centro_De_Salud;
 import com.pruebas.protesta_social.objetos.Lugar;
@@ -22,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btnMapa, btnArengas, btnPanico, btnChat;
     private DatabaseReference referencia;
+    private String g;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,14 +61,21 @@ public class MainActivity extends AppCompatActivity {
         btnChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent;
-                String g = referencia.child(NombreDeUsuario).child("Grupo").toString();
-                if(g.equals("")){
-                    intent = new Intent(getApplicationContext(),Sala_Chat.class);
-                }else {
-                    intent = new Intent(getApplicationContext(), Chat.class);
-                }
-                startActivity(intent);
+                referencia.child("Persona").child(NombreDeUsuario).child("grupo").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        g = snapshot.getValue().toString();
+                        if(g.equals("No")){
+                            intent = new Intent(getApplicationContext(),Sala_Chat.class);
+                        }else {
+                            intent = new Intent(getApplicationContext(),Chat.class);
+                        }
+                        startActivity(intent);
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
+                });
             }
         });
     }
