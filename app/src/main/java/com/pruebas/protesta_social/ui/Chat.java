@@ -57,13 +57,11 @@ public class Chat extends AppCompatActivity {
         FirebaseFirestore.getInstance().collection("Chat").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                Toast.makeText(Chat.this,"vista 1",Toast.LENGTH_SHORT).show();
                 for(DocumentChange mDocumentChange : value.getDocumentChanges()){
                     if(mDocumentChange.getType() == DocumentChange.Type.ADDED){
                         ListMensajes.add(mDocumentChange.getDocument().toObject(Mensaje.class));
                         ContenedorMsjs.notifyDataSetChanged();
                         Mensajes.smoothScrollToPosition(ListMensajes.size());
-                        Toast.makeText(Chat.this,"vistaa",Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -72,12 +70,11 @@ public class Chat extends AppCompatActivity {
         Enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Chat.this,"Holaaa",Toast.LENGTH_SHORT).show();
                 if(Msj.length()!=0){
                     Mensaje mensaje = new Mensaje();
                     mensaje.setName(NombreDeUsuario);
                     mensaje.setMensaje(Msj.getText().toString());
-                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm");
                     String HoraActual = simpleDateFormat.format(new Date());
                     mensaje.setHora(HoraActual);
                     FirebaseFirestore.getInstance().collection("Chat").add(mensaje);
