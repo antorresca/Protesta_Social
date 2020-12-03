@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".ui.Chat">
 
+    <TextView
+        android:id="@+id/TxtCodigo_del_Grupo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageButton
         android:id="@+id/BtnEnviar"
         android:layout_width="wrap_content"
@@ -41,5 +52,5 @@
         app:layout_constraintBottom_toTopOf="@+id/Nombre_Usuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/TxtCodigo_del_Grupo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

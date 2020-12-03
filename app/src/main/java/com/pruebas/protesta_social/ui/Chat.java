@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -31,7 +33,7 @@ import static com.pruebas.protesta_social.ui.Login.NombreDeUsuario;
 
 public class Chat extends AppCompatActivity {
 
-    private TextView Comunicador;
+    private TextView Comunicador,Titulo;
     private EditText Msj;
     private ImageButton Enviar;
     private RecyclerView Mensajes;
@@ -44,6 +46,7 @@ public class Chat extends AppCompatActivity {
         setContentView(R.layout.activity_chat);
 
         Comunicador = (TextView) findViewById(R.id.Nombre_Usuario);
+        Titulo = (TextView) findViewById(R.id.TxtCodigo_del_Grupo);
         Msj = (EditText) findViewById(R.id.CEditMensaje);
         Enviar = (ImageButton) findViewById(R.id.BtnEnviar);
         Mensajes = (RecyclerView) findViewById(R.id.CMensajes);
@@ -53,8 +56,11 @@ public class Chat extends AppCompatActivity {
         Mensajes.setAdapter(ContenedorMsjs);
         Mensajes.setHasFixedSize(true);
         Comunicador.setText(NombreDeUsuario);
+        Titulo.setText("Codigo Grupo : "+FirebaseDatabase.getInstance().getReference()
+                .child(NombreDeUsuario).child("Grupo").toString());
 
-        FirebaseFirestore.getInstance().collection("Chat").addSnapshotListener(new EventListener<QuerySnapshot>() {
+        FirebaseFirestore.getInstance().collection(FirebaseDatabase.getInstance().getReference().child(NombreDeUsuario).child("Grupo").toString())
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                 for(DocumentChange mDocumentChange : value.getDocumentChanges()){

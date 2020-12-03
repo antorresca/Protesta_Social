@@ -5,17 +5,28 @@ public class Persona {
     private String Usuario;
     private String Password;
     private String Nombre;
+    private String Grupo;
 
     public Persona(String usuario, String password, String nombre) {
         Usuario = usuario;
         Password = password;
         Nombre = nombre;
+        Grupo = "";
     }
 
     public Persona() {
         Usuario = "";
         Password = "";
         Nombre = "";
+        Grupo = "";
+    }
+
+    public String getGrupo() {
+        return Grupo;
+    }
+
+    public void setGrupo(String grupo) {
+        Grupo = grupo;
     }
 
     public String getUsuario() {
@@ -44,6 +55,6 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona Usuario=" + Usuario +", Password='" + Password +", Nombre='" + Nombre;
+        return "Persona Usuario=" + Usuario +", Password='" + Password +", Nombre='" + Nombre+", Grupo="+Grupo;
     }
 }

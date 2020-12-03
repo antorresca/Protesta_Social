@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.pruebas.protesta_social.R;
 import com.pruebas.protesta_social.objetos.Centro_De_Salud;
 import com.pruebas.protesta_social.objetos.Lugar;
@@ -19,6 +21,7 @@ import static com.pruebas.protesta_social.ui.Login.*;
 public class MainActivity extends AppCompatActivity {
 
     private Button btnMapa, btnArengas, btnPanico, btnChat;
+    private DatabaseReference referencia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         btnMapa = (Button) findViewById(R.id.btn_mapa);
         btnArengas = (Button) findViewById(R.id.btn_arengas);
         btnChat = (Button) findViewById(R.id.btnChat);
+        referencia = FirebaseDatabase.getInstance().getReference();
 
         Toast.makeText(MainActivity.this,"Hola "+NombreDeUsuario,Toast.LENGTH_SHORT).show();
 
@@ -50,7 +54,13 @@ public class MainActivity extends AppCompatActivity {
         btnChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),Chat.class);
+                Intent intent;
+                String g = referencia.child(NombreDeUsuario).child("Grupo").toString();
+                if(g.equals("")){
+                    intent = new Intent(getApplicationContext(),Sala_Chat.class);
+                }else {
+                    intent = new Intent(getApplicationContext(), Chat.class);
+                }
                 startActivity(intent);
             }
         });

@@ -31,22 +31,24 @@
         android:text="Mapa"
         app:backgroundTint="#00BCD4" />
 
-    <Button
-        android:id="@+id/btn_arengas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5px"
-        android:layout_marginTop="15px"
-        android:layout_marginRight="5px"
-        android:background="#E91E63"
-        android:text="Arengas"
-        app:backgroundTint="#E91E63" />
+        <Button
+            android:id="@+id/btn_arengas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5px"
+            android:layout_marginTop="15px"
+            android:layout_marginRight="5px"
+            android:background="#E91E63"
+            android:text="Arengas"
+            android:textSize="14sp"
+            app:backgroundTint="#E91E63" />
 
         <Button
             android:id="@+id/btnChat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Chat" />
+            android:text="Chat"
+            android:textSize="14sp" />
 
         <Button
         android:id="@+id/btn_panico"
