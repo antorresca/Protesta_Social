@@ -19,8 +19,6 @@ import com.pruebas.protesta_social.objetos.Centro_De_Salud;
 import com.pruebas.protesta_social.objetos.Lugar;
 import com.pruebas.protesta_social.objetos.Punto_De_Encuentro;
 import java.util.ArrayList;
-import static com.pruebas.protesta_social.ui.Ingresar.*;
-import static com.pruebas.protesta_social.ui.Registro.*;
 import static com.pruebas.protesta_social.ui.Login.*;
 
 public class MainActivity extends AppCompatActivity {
@@ -41,6 +39,16 @@ public class MainActivity extends AppCompatActivity {
         referencia = FirebaseDatabase.getInstance().getReference();
 
         Toast.makeText(MainActivity.this,"Hola "+NombreDeUsuario,Toast.LENGTH_SHORT).show();
+
+        FirebaseDatabase.getInstance().getReference().child("Persona").child(NombreDeUsuario).child("grupo").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                CodigoDelGrupo = snapshot.getValue().toString();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
 
         btnArengas.setOnClickListener(new View.OnClickListener() {
             @Override

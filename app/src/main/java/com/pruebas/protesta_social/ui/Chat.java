@@ -5,10 +5,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import static com.pruebas.protesta_social.ui.Sala_Chat.CodigoDelGrupo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.CollectionReference;
@@ -21,21 +19,19 @@ import com.pruebas.protesta_social.logic.Contenedor;
 import com.pruebas.protesta_social.objetos.*;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.pruebas.protesta_social.R;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
-import static com.pruebas.protesta_social.ui.Login.NombreDeUsuario;
+import static com.pruebas.protesta_social.ui.Login.*;
 
 public class Chat extends AppCompatActivity {
 
@@ -45,6 +41,7 @@ public class Chat extends AppCompatActivity {
     private RecyclerView Mensajes;
     private List<Mensaje> ListMensajes;
     private Contenedor ContenedorMsjs;
+    private CollectionReference chat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +74,12 @@ public class Chat extends AppCompatActivity {
             }
         });
 
-        FirebaseFirestore.getInstance().collection(CodigoDelGrupo).addSnapshotListener(new EventListener<QuerySnapshot>() {
+        try{
+            chat = FirebaseFirestore.getInstance().collection(CodigoDelGrupo);
+        }catch(Exception e){
+            chat = FirebaseFirestore.getInstance().collection("Chat");
+        }
+        chat.addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                 for(DocumentChange mDocumentChange : value.getDocumentChanges()){
@@ -94,13 +96,16 @@ public class Chat extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(Msj.length()!=0){
+                    Random random = new Random();
+                    int t = random.nextInt(10000);
                     Mensaje mensaje = new Mensaje();
                     mensaje.setName(NombreDeUsuario);
                     mensaje.setMensaje(Msj.getText().toString());
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm");
                     String HoraActual = simpleDateFormat.format(new Date());
+                    String ordenador = new SimpleDateFormat("hh:mm:ss").format(new Date());
                     mensaje.setHora(HoraActual);
-                    FirebaseFirestore.getInstance().collection(CodigoDelGrupo).add(mensaje);
+                    FirebaseFirestore.getInstance().collection(CodigoDelGrupo).document(ordenador+NombreDeUsuario+t).set(mensaje);
                     Msj.setText("");
                 }
             }

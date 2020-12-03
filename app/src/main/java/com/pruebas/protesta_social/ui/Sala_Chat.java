@@ -15,12 +15,12 @@ import com.pruebas.protesta_social.R;
 import com.pruebas.protesta_social.logic.Principal;
 import com.pruebas.protesta_social.objetos.Grupo;
 
+import static com.pruebas.protesta_social.ui.Login.CodigoDelGrupo;
 import static com.pruebas.protesta_social.ui.Login.NombreDeUsuario;
 
 public class Sala_Chat extends AppCompatActivity {
     private Button Crear, Codigo;
     private DatabaseReference datos;
-    public static String CodigoDelGrupo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,8 @@ public class Sala_Chat extends AppCompatActivity {
         Crear = (Button) findViewById(R.id.btnCrearGrupo);
         Codigo = (Button) findViewById(R.id.btnCodigoGrupo);
         datos = FirebaseDatabase.getInstance().getReference();
+
+
 
         Crear.setOnClickListener(new View.OnClickListener() {
             @Override
