@@ -63,7 +63,7 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback {
                 }
 
             }catch (Exception e){
-                mMap.addMarker(new MarkerOptions().position(g).title(l.getNombre()));
+                mMap.addMarker(new MarkerOptions().position(g).title(l.getNombre()).snippet(l.toString()));
             }
         }
         mMap.addMarker(new MarkerOptions().position(a).snippet("Derechos Humanos").title("DDHH").icon(BitmapDescriptorFactory.fromResource(R.drawable.pajaro)));
