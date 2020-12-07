@@ -23,7 +23,7 @@ import static com.pruebas.protesta_social.ui.Login.*;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btnMapa, btnArengas, btnPanico, btnChat;
+    private Button btnMapa, btnArengas, btnPanico, btnCalendario,btnChat;
     private DatabaseReference referencia;
     private String g;
     private Intent intent;
@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         btnMapa = (Button) findViewById(R.id.btn_mapa);
         btnArengas = (Button) findViewById(R.id.btn_arengas);
         btnChat = (Button) findViewById(R.id.btnChat);
+        btnCalendario = (Button) findViewById(R.id.btn_Calendar);
         referencia = FirebaseDatabase.getInstance().getReference();
 
         Toast.makeText(MainActivity.this,"Hola "+NombreDeUsuario,Toast.LENGTH_SHORT).show();
@@ -84,6 +85,14 @@ public class MainActivity extends AppCompatActivity {
                     public void onCancelled(@NonNull DatabaseError error) {
                     }
                 });
+            }
+        });
+
+        btnCalendario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,Calendario.class);
+                startActivity(intent);
             }
         });
     }
