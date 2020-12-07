@@ -34,10 +34,9 @@ public class Calendario extends AppCompatActivity {
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 String fecha = year + "/" + month + "/" + dayOfMonth;
                 tv.setText(fecha);
-
             }
 
-        } , dia, mes, anio);
+        } ,anio, mes, dia);
         dpd.show();
     }
 

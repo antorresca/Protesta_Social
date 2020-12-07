@@ -6,6 +6,8 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.pruebas.protesta_social.R;
@@ -53,11 +55,18 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback {
         for(Lugar l : lugares1.getLugares()){
             LatLng g = l.getCoordenadas();
             try{
-                mMap.addMarker(new MarkerOptions().position(g).snippet(l.toString()).title(l.getNombre()));
+                if(l.toString().contains("Encuentro")){
+                    mMap.addMarker(new MarkerOptions().position(g).snippet(l.toString()).title(l.getNombre()).icon(BitmapDescriptorFactory.fromResource(R.drawable.regroup)));
+                }
+                else{
+                    mMap.addMarker(new MarkerOptions().position(g).snippet(l.toString()).title(l.getNombre()).icon(BitmapDescriptorFactory.fromResource(R.drawable.hospital)));
+                }
+
             }catch (Exception e){
                 mMap.addMarker(new MarkerOptions().position(g).title(l.getNombre()));
             }
         }
+        mMap.addMarker(new MarkerOptions().position(a).snippet("Derechos Humanos").title("DDHH").icon(BitmapDescriptorFactory.fromResource(R.drawable.pajaro)));
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(a,15));
 
