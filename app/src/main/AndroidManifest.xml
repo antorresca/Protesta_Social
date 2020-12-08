@@ -26,6 +26,7 @@
         <activity android:name=".ui.AgregarGrupo" />
         <activity android:name=".ui.Sala_Chat" />
         <activity android:name=".ui.Chat" />
+        <activity android:name=".ui.Arengas" />
         <activity android:name=".ui.Ingresar" />
         <activity android:name=".ui.Registro" />
         <activity android:name=".ui.Login" />
@@ -44,7 +45,6 @@
         <activity
             android:name=".ui.Mapa"
             android:label="@string/title_activity_mapa" />
-        <activity android:name=".ui.arengas" />
         <activity android:name=".ui.MainActivity" />
         <activity android:name=".ui.pantalla_carga">
             <intent-filter>

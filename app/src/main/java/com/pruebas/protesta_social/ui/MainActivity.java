@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         btnArengas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), arengas.class);
+                Intent intent = new Intent(getApplicationContext(), Arengas.class);
                 startActivity(intent);
             }
         });
