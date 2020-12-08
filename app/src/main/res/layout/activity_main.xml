@@ -17,51 +17,89 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imageView3"
+            android:layout_width="241dp"
+            android:layout_height="164dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginLeft="70dp"
+            android:adjustViewBounds="false"
+            android:focusable="auto"
+            app:srcCompat="@drawable/logonegro" />
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="184dp"/>
-    <Button
-        android:id="@+id/btn_mapa"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5px"
-        android:layout_marginTop="20px"
-        android:layout_marginRight="5px"
-        android:background="@color/teal_200"
-        android:text="Mapa"
-        app:backgroundTint="#00BCD4" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_mapa"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/teal_200"
+                android:text="Mapa"
+                app:backgroundTint="#00BCD4" />
+
+            <Button
+                android:id="@+id/btn_arengas"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:background="#E91E63"
+                android:text="Arengas"
+                android:textSize="14sp"
+                app:backgroundTint="#E91E63" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_tips"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5px"
+                android:layout_marginTop="15px"
+                android:layout_marginRight="5px"
+                android:background="#E91E63"
+                android:text="Tips"
+                app:backgroundTint="#E91E63" />
+
+            <Button
+                android:id="@+id/btn_Calendar"
+                android:layout_width="192dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5px"
+                android:layout_marginTop="15px"
+                android:layout_marginRight="5px"
+                android:background="#E91E63"
+                android:text="Calendario"
+                android:textSize="14sp"
+                app:backgroundTint="#E91E63" />
+        </LinearLayout>
 
         <Button
-            android:id="@+id/btn_arengas"
+            android:id="@+id/btnChat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5px"
             android:layout_marginTop="15px"
             android:layout_marginRight="5px"
             android:background="#E91E63"
-            android:text="Arengas"
+            android:text="Chat"
             android:textSize="14sp"
             app:backgroundTint="#E91E63" />
-
-        <Button
-            android:id="@+id/btnChat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Chat"
-            android:layout_marginLeft="5px"
-            android:layout_marginTop="15px"
-            android:layout_marginRight="5px"
-            android:textSize="14sp" />
-
-        <Button
-            android:id="@+id/btn_Calendar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Calendario"
-            android:layout_marginLeft="5px"
-            android:layout_marginTop="15px"
-            android:layout_marginRight="5px"
-            android:textSize="14sp"/>
 
         <Button
         android:id="@+id/btn_panico"
@@ -75,7 +113,7 @@
         app:backgroundTint="#FF0000" />
 
 
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
