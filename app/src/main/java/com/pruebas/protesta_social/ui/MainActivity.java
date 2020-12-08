@@ -29,8 +29,7 @@ import static com.pruebas.protesta_social.ui.Login.*;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageView Imagen;
-    private Button btnMapa, btnArengas, btnPanico, btnCalendario,btnChat;
+    private Button btnMapa, btnArengas,btnTips, btnPanico, btnCalendario,btnChat;
     private Intent intent;
     private DatabaseReference referencia;
     private String g;
@@ -41,11 +40,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Imagen = (ImageView) findViewById(R.id.Logo_pantalla1);
         btnMapa = (Button) findViewById(R.id.btn_mapa);
         btnArengas = (Button) findViewById(R.id.btn_arengas);
         btnChat = (Button) findViewById(R.id.btnChat);
         btnCalendario = (Button) findViewById(R.id.btn_Calendar);
+        btnTips = (Button) findViewById(R.id.btn_tips);
         referencia = FirebaseDatabase.getInstance().getReference();
 
         Toast.makeText(MainActivity.this,"Hola "+NombreDeUsuario,Toast.LENGTH_SHORT).show();
@@ -101,6 +100,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,Calendario.class);
+                startActivity(intent);
+            }
+        });
+
+        btnTips.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,Tips.class);
                 startActivity(intent);
             }
         });
