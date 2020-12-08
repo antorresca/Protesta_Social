@@ -1,14 +1,9 @@
 package com.pruebas.protesta_social.ui;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
@@ -16,20 +11,16 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.pruebas.protesta_social.logic.Contenedor;
+import com.pruebas.protesta_social.logic.Principal;
 import com.pruebas.protesta_social.objetos.*;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
 import com.pruebas.protesta_social.R;
-
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Random;
 
 import static com.pruebas.protesta_social.ui.Login.*;
 
@@ -59,20 +50,12 @@ public class Chat extends AppCompatActivity {
         Mensajes.setAdapter(ContenedorMsjs);
         Mensajes.setHasFixedSize(true);
         Comunicador.setText(NombreDeUsuario);
-        FirebaseDatabase.getInstance().getReference().child("Persona").child(NombreDeUsuario).child("grupo").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                CodigoDelGrupo = snapshot.getValue().toString();
-                try{
-                    Titulo.setText("Codigo Grupo : "+CodigoDelGrupo);
-                }catch (Exception e){
-                    Titulo.setText("Error");
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
+        CodigoDelGrupo = Principal.Obtener_Codigo();
+        try{
+            Titulo.setText("Codigo Grupo : "+CodigoDelGrupo);
+        }catch (Exception e){
+            Titulo.setText("Error");
+        }
 
         try{
             chat = FirebaseFirestore.getInstance().collection(CodigoDelGrupo);
@@ -96,16 +79,7 @@ public class Chat extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(Msj.length()!=0){
-                    Random random = new Random();
-                    int t = random.nextInt(10000);
-                    Mensaje mensaje = new Mensaje();
-                    mensaje.setName(NombreDeUsuario);
-                    mensaje.setMensaje(Msj.getText().toString());
-                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm");
-                    String HoraActual = simpleDateFormat.format(new Date());
-                    String ordenador = new SimpleDateFormat("hh:mm:ss").format(new Date());
-                    mensaje.setHora(HoraActual);
-                    FirebaseFirestore.getInstance().collection(CodigoDelGrupo).document(ordenador+NombreDeUsuario+t).set(mensaje);
+                    Principal.Guardar_Mensaje(Msj.getText().toString(),NombreDeUsuario);
                     Msj.setText("");
                 }
             }

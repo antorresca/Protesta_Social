@@ -21,6 +21,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.pruebas.protesta_social.R;
+import com.pruebas.protesta_social.logic.Principal;
+import com.pruebas.protesta_social.objetos.Grupo;
+
+import java.util.Map;
 
 import static com.pruebas.protesta_social.ui.Login.NombreDeUsuario;
 
@@ -66,6 +70,7 @@ public class AgregarGrupo extends AppCompatActivity {
                 }
             }
         });
+
 
     }
 }

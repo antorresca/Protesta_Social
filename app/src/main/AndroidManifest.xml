@@ -16,7 +16,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Protesta_Social">
-        <activity android:name=".ui.Calendario"></activity>
+        <activity android:name=".ui.Tips"></activity>
+        <activity android:name=".ui.pdfview4" />
+        <activity android:name=".ui.pdfview3" />
+        <activity android:name=".ui.pdfview2" />
+        <activity android:name=".ui.pdfview1" />
+        <activity android:name=".ui.Calendario" />
         <activity android:name=".ui.AgregarGrupo" />
         <activity android:name=".ui.Sala_Chat" />
         <activity android:name=".ui.Chat" />

@@ -21,7 +21,6 @@ public class Ingresar extends AppCompatActivity {
 
     public static EditText User,Pass;
     private Button Bienvenida;
-    private DatabaseReference referencia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +39,7 @@ public class Ingresar extends AppCompatActivity {
                 if(NombreDeUsuario.equals("") || Password.equals("")){
                     Validar(NombreDeUsuario,Password);
                 }else{
-                    referencia = FirebaseDatabase.getInstance().getReference();
-                    referencia.child("Persona").child(NombreDeUsuario).addValueEventListener(new ValueEventListener() {
+                    FirebaseDatabase.getInstance().getReference().child("Persona").child(NombreDeUsuario).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if(snapshot.exists()){

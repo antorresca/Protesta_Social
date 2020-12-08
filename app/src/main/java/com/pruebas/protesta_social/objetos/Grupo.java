@@ -5,14 +5,14 @@ import java.util.ArrayList;
 public class Grupo {
 
     private String  Codigo;
-    private ArrayList<String> Usuarios = new ArrayList<String>();
+    private String Propietario;
 
     public Grupo() {
     }
 
     public Grupo(String codigo, String usuario) {
         Codigo = codigo;
-        Usuarios.add(usuario);
+        Propietario = usuario;
     }
 
     public String getCodigo() {
@@ -23,11 +23,11 @@ public class Grupo {
         Codigo = codigo;
     }
 
-    public ArrayList<String> getUsuarios() {
-        return Usuarios;
+    public String getPropietario() {
+        return Propietario;
     }
 
-    public void setUsuario(String usuario) {
-        Usuarios.add(usuario);
+    public void setPropietario(String propietario) {
+        Propietario = propietario;
     }
 }

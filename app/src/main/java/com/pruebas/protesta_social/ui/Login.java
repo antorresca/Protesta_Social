@@ -13,8 +13,7 @@ public class Login extends AppCompatActivity {
 
     private Button btnRegistro;
     private Button btnIngresar;
-    public static String NombreDeUsuario;
-    public static String CodigoDelGrupo;
+    public static String NombreDeUsuario,CodigoDelGrupo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

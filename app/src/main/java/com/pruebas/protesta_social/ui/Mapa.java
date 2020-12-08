@@ -11,6 +11,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.pruebas.protesta_social.R;
+import com.pruebas.protesta_social.logic.Principal;
 import com.pruebas.protesta_social.objetos.Lugar;
 import com.pruebas.protesta_social.objetos.Lugares;
 
@@ -48,7 +49,7 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback {
         Lugar B = new Lugar();
         LatLng a = B.getCoordenadas();
 
-        lugares1.setLugares(MainActivity.Guardar_lugares());
+        lugares1.setLugares(Principal.Guardar_lugares());
 
         mMap = googleMap;
 

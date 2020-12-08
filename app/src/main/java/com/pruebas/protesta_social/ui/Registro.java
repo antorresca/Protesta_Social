@@ -2,7 +2,7 @@ package com.pruebas.protesta_social.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import static com.pruebas.protesta_social.ui.Ingresar.*;
+
 import static com.pruebas.protesta_social.ui.Login.*;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.pruebas.protesta_social.R;
+import com.pruebas.protesta_social.logic.Principal;
 import com.pruebas.protesta_social.objetos.*;
 
 public class Registro extends AppCompatActivity {
@@ -53,10 +54,9 @@ public class Registro extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if(snapshot.exists()){
-                                Imprimir(2);
+                                UsuarioI.setError("Usuario ya existente");
                             }else{
-                                Imprimir(3);
-                                siguiente();
+                                siguiente(Name,NombreDeUsuario,Password);
                             }
                         }
                         @Override
@@ -68,37 +68,12 @@ public class Registro extends AppCompatActivity {
         });
     }
 
-    public void siguiente(){
-        String Name = NombreI.getText().toString();
-        String Usuario = UsuarioI.getText().toString();
-        String Password = PassI.getText().toString();
+    public void siguiente(String Name, String Usuario, String Password){
         FirebaseApp.initializeApp(this);
-        Persona persona = new Persona();
-        persona.setNombre(Name);
-        persona.setUsuario(Usuario);
-        persona.setPassword(Password);
+        Persona persona = Principal.crear_Usuario(Name,Usuario,Password);
         referencia.child("Persona").child(Usuario).setValue(persona);
-        Imprimir(3);
-        Intent intent = new Intent(Registro.this, MainActivity.class);
-        startActivity(intent);
-    }
-
-    public void Imprimir(int a) {
-        switch (a) {
-            case 1:
-                Toast.makeText(this, "Llegue", Toast.LENGTH_SHORT).show();
-                break;
-            case 2:
-                Toast.makeText(this, "El usuario ya existe", Toast.LENGTH_SHORT).show();
-                break;
-            case 3:
-                Toast.makeText(this, "Registro Existoso", Toast.LENGTH_SHORT).show();
-                break;
-            case 4:
-                Toast.makeText(this, "Problema", Toast.LENGTH_SHORT).show();
-                break;
-        }
-
+        Toast.makeText(Registro.this, "Registro Existoso", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(Registro.this, MainActivity.class));
     }
 
     private void Validacion(String Nombre, String Usuario, String Password) {
@@ -112,11 +87,7 @@ public class Registro extends AppCompatActivity {
                 if (Password.equals("")) {
                     PassI.setError("Requerido");
                 }
-                else{
-                    Imprimir(4);
-                }
             }
-
         }
     }
 }
