@@ -1,28 +1,22 @@
 package com.pruebas.protesta_social.logic;
 
-import android.content.Intent;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
+
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.pruebas.protesta_social.objetos.Centro_De_Salud;
 import com.pruebas.protesta_social.objetos.Derechos_Humanos;
 import com.pruebas.protesta_social.objetos.Grupo;
 import com.pruebas.protesta_social.objetos.Lugar;
 import com.pruebas.protesta_social.objetos.Mensaje;
-import com.pruebas.protesta_social.objetos.Persona;
 import com.pruebas.protesta_social.objetos.Punto_De_Encuentro;
 import com.pruebas.protesta_social.objetos.Usuario;
-import com.pruebas.protesta_social.ui.AgregarGrupo;
-import com.pruebas.protesta_social.ui.Chat;
-import com.pruebas.protesta_social.ui.Ingresar;
-import com.pruebas.protesta_social.ui.MainActivity;
-
 import static com.pruebas.protesta_social.ui.Login.CodigoDelGrupo;
 
 import java.text.SimpleDateFormat;
@@ -36,6 +30,10 @@ public class Principal {
 
     private static DatabaseReference referencia = FirebaseDatabase.getInstance().getReference();
     private static String Codigo;
+    private FirebaseMessaging t;
+
+    public void algo(){
+    }
 
     public static String CrearGrupo(String palabra){
         int numero = 0;
