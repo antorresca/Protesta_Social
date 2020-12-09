@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">Atenea</string>
     <string name="title_activity_mapa">Map</string>
+    <string-array name="opciones_usuario">
+        <item>Seleccione</item>
+        <item>Particular</item>
+        <item>Derechos Humanos</item>
+    </string-array>
+    <string-array name="sindicatos">
+        <item>Seleccione</item>
+        <item>Estudiantes</item>
+        <item>Profesores</item>
+        <item>Trabajadores</item>
+        <item>Otro/Ninguno</item>
+    </string-array>
 </resources>

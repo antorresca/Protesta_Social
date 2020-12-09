@@ -4,26 +4,29 @@ import java.util.ArrayList;
 
 public class Usuario extends Persona{
 
-    private String Rol;
+    private String Sindicato;
     private ArrayList<Double> Ubicacion;
 
-    public Usuario(String usuario, String password, String nombre, String rol, ArrayList<Double> ubicacion) {
+    public Usuario() {
+    }
+
+    public Usuario(String usuario, String password, String nombre, String sindicato, ArrayList<Double> ubicacion) {
         super(usuario, password, nombre);
-        Rol = rol;
+        Sindicato = sindicato;
         Ubicacion = ubicacion;
     }
 
-    public Usuario(String rol, ArrayList<Double> ubicacion) {
-        Rol = rol;
+    public Usuario(String sindicato, ArrayList<Double> ubicacion) {
+        Sindicato = sindicato;
         Ubicacion = ubicacion;
     }
 
-    public String getRol() {
-        return Rol;
+    public String getSindicato() {
+        return Sindicato;
     }
 
-    public void setRol(String rol) {
-        Rol = rol;
+    public void setSindicato(String sindicato) {
+        Sindicato = sindicato;
     }
 
     public ArrayList<Double> getUbicacion() {
@@ -36,6 +39,6 @@ public class Usuario extends Persona{
 
     @Override
     public String toString() {
-        return "Usuario Rol='" + Rol +", Ubicacion=" + Ubicacion;
+        return "Usuario Rol='" + Sindicato +", Ubicacion=" + Ubicacion;
     }
 }

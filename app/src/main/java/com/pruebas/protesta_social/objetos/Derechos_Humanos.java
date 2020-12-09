@@ -4,6 +4,9 @@ public class Derechos_Humanos extends Persona {
 
     private String Telefono;
 
+    public Derechos_Humanos() {
+    }
+
     public Derechos_Humanos(String usuario, String password, String nombre, String telefono) {
         super(usuario, password, nombre);
         Telefono = telefono;

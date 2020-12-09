@@ -1,6 +1,6 @@
 package com.pruebas.protesta_social.objetos;
 
-public class Persona {
+public abstract class Persona {
 
     private String Usuario;
     private String Password;

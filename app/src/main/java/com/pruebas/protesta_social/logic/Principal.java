@@ -11,11 +11,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.pruebas.protesta_social.objetos.Centro_De_Salud;
+import com.pruebas.protesta_social.objetos.Derechos_Humanos;
 import com.pruebas.protesta_social.objetos.Grupo;
 import com.pruebas.protesta_social.objetos.Lugar;
 import com.pruebas.protesta_social.objetos.Mensaje;
 import com.pruebas.protesta_social.objetos.Persona;
 import com.pruebas.protesta_social.objetos.Punto_De_Encuentro;
+import com.pruebas.protesta_social.objetos.Usuario;
 import com.pruebas.protesta_social.ui.AgregarGrupo;
 import com.pruebas.protesta_social.ui.Chat;
 import com.pruebas.protesta_social.ui.Ingresar;
@@ -100,16 +102,28 @@ public class Principal {
         lugares_guardados.add(UP);
         lugares_guardados.add(CMC);
         lugares_guardados.add(SED);
+        referencia.child("Lugares").setValue(lugares_guardados);
         return lugares_guardados;
     }
 
-    public static Persona crear_Usuario(String Name, String Usuario, String Password){
-        Persona persona = new Persona();
-        persona.setNombre(Name);
-        persona.setUsuario(Usuario);
-        persona.setPassword(Password);
-        return persona;
+    public static Usuario crear_Usuario(String Name, String Usuario, String Password, String Sindicato){
+            Usuario persona = new Usuario();
+            persona.setNombre(Name);
+            persona.setUsuario(Usuario);
+            persona.setPassword(Password);
+            persona.setSindicato(Sindicato);
+            return persona;
     }
+
+    public static Derechos_Humanos crear_DDHH(String Name, String Usuario, String Password){
+            Derechos_Humanos persona = new Derechos_Humanos();
+            persona.setNombre(Name);
+            persona.setUsuario(Usuario);
+            persona.setPassword(Password);
+            persona.setGrupo("Derechos-Humanos");
+            return persona;
+    }
+
 
     public static void Guardar_Grupo(String Nombre){
         CodigoDelGrupo = Principal.CrearGrupo(Nombre);

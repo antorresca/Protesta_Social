@@ -7,7 +7,7 @@
          location permissions for the "MyLocation" functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name="androidx.multidex.MultiDexApplication"
@@ -17,7 +17,9 @@
         android:roundIcon="@mipmap/logo_atenea_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Protesta_Social">
-        <activity android:name=".ui.Tips"></activity>
+        <activity android:name=".ui.Telefono"></activity>
+        <activity android:name=".ui.Sindicato" />
+        <activity android:name=".ui.Tips" />
         <activity android:name=".ui.pdfview4" />
         <activity android:name=".ui.pdfview3" />
         <activity android:name=".ui.pdfview2" />
