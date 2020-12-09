@@ -4,51 +4,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.Chat">
 
     <TextView
         android:id="@+id/TxtCodigo_del_Grupo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="15sp"
-        android:textStyle="bold"
+        android:layout_width="83dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
+        android:text="Chat"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/BtnEnviar"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_width="48dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/Nombre_Usuario"
+        app:layout_constraintVertical_bias="0.722"
         app:srcCompat="@android:drawable/ic_menu_send" />
 
     <EditText
         android:id="@+id/CEditMensaje"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="335dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="4dp"
         android:ems="10"
         android:hint="Mensaje"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/BtnEnviar"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/Nombre_Usuario"
-        android:layout_width="0dp"
+        android:layout_width="341dp"
         android:layout_height="25dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/CEditMensaje"
         app:layout_constraintEnd_toStartOf="@+id/BtnEnviar"
+        app:layout_constraintHorizontal_bias="0.642"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/CMensajes"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="379dp"
+        android:layout_height="479dp"
         app:layout_constraintBottom_toTopOf="@+id/Nombre_Usuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -4,81 +4,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.Tips">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="328dp"
-        android:layout_height="563dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="310dp"
+        android:layout_height="50dp"
+        android:gravity="center_horizontal"
+        android:text="Tips"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnDefensaPopular"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.4">
+        app:layout_constraintVertical_bias="0.468" />
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20px"
-            android:layout_marginTop="10px"
-            android:layout_marginRight="20px"
-            android:gravity="center_horizontal"
-            android:text="Tips"
-            android:textAlignment="center"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+    <Button
+        android:id="@+id/btnDefensaPopular"
+        android:layout_width="345dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="24dp"
+        android:onClick="ir_DefPopular"
+        android:text="Defensa popular"
+        app:backgroundTint="@color/azul_seco"
+        app:layout_constraintBottom_toTopOf="@+id/btnMediosLibres"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/btnDefensaPopular"
-            android:onClick="ir_DefPopular"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5px"
-            android:layout_marginTop="20px"
-            android:layout_marginRight="5px"
-            android:background="@color/teal_200"
-            android:text="Defensa popular"
-            app:backgroundTint="#00BCD4" />
+    <Button
+        android:id="@+id/btnMediosLibres"
+        android:layout_width="345dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="24dp"
+        android:onClick="ir_MedLibre"
+        android:text="Medios libres"
+        app:backgroundTint="@color/azul_seco"
+        app:layout_constraintBottom_toTopOf="@+id/btnP_A_Legales"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/btnMediosLibres"
-            android:onClick="ir_MedLibre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5px"
-            android:layout_marginTop="20px"
-            android:layout_marginRight="5px"
-            android:background="@color/teal_200"
-            android:text="Medios libres"
-            app:backgroundTint="#00BCD4" />
+    <Button
+        android:id="@+id/btnP_A_Legales"
+        android:layout_width="345dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="24dp"
+        android:onClick="ir_PALegales"
+        android:text="Primeros auxilios legales"
+        app:backgroundTint="@color/azul_seco"
+        app:layout_constraintBottom_toTopOf="@+id/btnP_A_Medicos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/btnP_A_Legales"
-            android:onClick="ir_PALegales"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5px"
-            android:layout_marginTop="20px"
-            android:layout_marginRight="5px"
-            android:background="@color/teal_200"
-            android:text="Primeros auxilios legales"
-            app:backgroundTint="#00BCD4" />
+    <Button
+        android:id="@+id/btnP_A_Medicos"
+        android:layout_width="345dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="136dp"
+        android:onClick="ir_PAMedicos"
+        android:text="Primeros auxilios médicos"
+        app:backgroundTint="@color/azul_seco"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/btnP_A_Medicos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5px"
-            android:layout_marginTop="20px"
-            android:layout_marginRight="5px"
-            android:background="@color/teal_200"
-            android:onClick="ir_PAMedicos"
-            android:text="Primeros auxilios médicos"
-            app:backgroundTint="#00BCD4" />
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Información relevante para manifestaciones"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
