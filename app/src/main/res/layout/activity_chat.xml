@@ -9,11 +9,11 @@
 
     <TextView
         android:id="@+id/TxtCodigo_del_Grupo"
-        android:layout_width="83dp"
+        android:layout_width="wrap_content"
         android:layout_height="33dp"
         android:layout_marginTop="16dp"
         android:gravity="center_horizontal"
-        android:text="Chat"
+        android:text="Codigo"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20dp"
