@@ -122,7 +122,6 @@ public class Principal {
             return persona;
     }
 
-
     public static void Guardar_Grupo(String Nombre){
         CodigoDelGrupo = Principal.CrearGrupo(Nombre);
         Grupo g = new Grupo(CodigoDelGrupo,NombreDeUsuario);
@@ -156,4 +155,18 @@ public class Principal {
         });
         return Codigo;
     }
+
+    public static void Emergencia(){
+        Random random = new Random();
+        int t = random.nextInt(10000);
+        com.pruebas.protesta_social.objetos.Mensaje mensaje = new Mensaje();
+        mensaje.setName(NombreDeUsuario);
+        mensaje.setMensaje(NombreDeUsuario+" Está en peligro. Abre tu mapa para obtener su ubicacion");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm");
+        String HoraActual = simpleDateFormat.format(new Date());
+        String ordenador = new SimpleDateFormat("hh:mm:ss").format(new Date());
+        mensaje.setHora(HoraActual);
+        FirebaseFirestore.getInstance().collection("Derechos-Humanos").document(ordenador+NombreDeUsuario+t).set(mensaje);
+    }
+
 }

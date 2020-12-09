@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Atenea</string>
     <string name="title_activity_mapa">Map</string>
+    <string name="default_notification_channel_id" />
+    <string name="msg_token_fmt" />
     <string-array name="opciones_usuario">
         <item>Seleccione</item>
         <item>Particular</item>
