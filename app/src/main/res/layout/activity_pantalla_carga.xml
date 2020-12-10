@@ -6,26 +6,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".ui.pantalla_carga">
+    tools:context=".ui.Pantalla_carga">
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="226dp"
         android:layout_height="222dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="140dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/logonegro" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="281dp"
+        android:layout_width="wrap_content"
         android:layout_height="39dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="96dp"
         android:gravity="center_horizontal"
-        android:text="Proyecto realizado por: Andres Torres, Daniela Meneses y Jeferson Calpa"
+        android:text="Proyecto realizado por: \n Andres Torres, Daniela Meneses y Jeferson Calpa"
         android:textAlignment="center"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -37,12 +39,13 @@
         android:id="@+id/imageView"
         android:layout_width="148dp"
         android:layout_height="50dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.656"
+        app:layout_constraintVertical_bias="0.346"
         app:srcCompat="@drawable/atenea_font" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

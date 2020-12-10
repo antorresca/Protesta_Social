@@ -54,7 +54,7 @@
             android:name=".ui.Mapa"
             android:label="@string/title_activity_mapa" />
         <activity android:name=".ui.MainActivity" />
-        <activity android:name=".ui.pantalla_carga">
+        <activity android:name=".ui.Pantalla_carga">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

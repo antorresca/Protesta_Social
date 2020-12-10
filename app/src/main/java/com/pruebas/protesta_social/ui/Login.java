@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import com.pruebas.protesta_social.R;
+import com.pruebas.protesta_social.logic.Principal;
 
 public class Login extends AppCompatActivity {
 
@@ -19,6 +20,9 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        Principal.Guardar_lugares();
+
         btnRegistro = (Button) findViewById(R.id.btnRegister);
         btnIngresar = (Button) findViewById(R.id.btnIngreso);
         btnRegistro.setOnClickListener(new View.OnClickListener() {

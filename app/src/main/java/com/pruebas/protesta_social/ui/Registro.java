@@ -92,13 +92,13 @@ public class Registro extends AppCompatActivity {
     public void siguiente(String Name, String Usuario, String Password,String rol,String Sind){
         FirebaseApp.initializeApp(this);
         if(rol.equals("Particular")){
-            Usuario persona = Principal.crear_Usuario(Name,Usuario,Password,Sind);
+            Usuario persona = Principal.Crear_Usuario(Name,Usuario,Password,Sind);
             referencia.child("Persona").child(Usuario).setValue(persona);
             Intent intento = new Intent(Registro.this,Sindicato.class);
             Toast.makeText(Registro.this, "Registro Existoso", Toast.LENGTH_SHORT).show();
             startActivity(intento);
         }else{
-            Derechos_Humanos persona = Principal.crear_DDHH(Name,Usuario,Password);
+            Derechos_Humanos persona = Principal.Crear_DDHH(Name,Usuario,Password);
             referencia.child("Persona").child(Usuario).setValue(persona);
             Grupo g = new Grupo("Derechos-Humanos",Usuario);
             referencia.child("Grupo").child("Derechos-Humanos").setValue(g);

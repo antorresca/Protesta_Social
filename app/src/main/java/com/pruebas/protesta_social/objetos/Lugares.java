@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Lugares {
 
-    private ArrayList<Lugar> Luga;
+    private ArrayList<Lugar> Luga = new ArrayList<Lugar>();
 
     public Lugares(){
         Luga = Luga;
@@ -18,7 +18,7 @@ public class Lugares {
         return Luga;
     }
 
-    public void setLugares(ArrayList<Lugar> lugares) {
-        Luga = lugares;
+    public void setLugares(Lugar lugares) {
+        Luga.add(lugares);
     }
 }

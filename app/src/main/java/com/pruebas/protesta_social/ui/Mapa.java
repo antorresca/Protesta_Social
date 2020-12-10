@@ -22,6 +22,8 @@ import com.pruebas.protesta_social.objetos.Lugares;
 
 import java.util.ArrayList;
 
+import static com.pruebas.protesta_social.logic.Principal.places;
+
 
 public class Mapa extends FragmentActivity implements OnMapReadyCallback {
 
@@ -54,7 +56,7 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback {
         Lugar B = new Lugar();
         LatLng a = B.getCoordenadas();
 
-        lugares1.setLugares(Principal.Guardar_lugares());
+        lugares1 = places;
 
         mMap = googleMap;
         mMap.getUiSettings().setZoomControlsEnabled(true);

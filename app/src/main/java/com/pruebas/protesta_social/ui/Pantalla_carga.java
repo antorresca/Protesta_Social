@@ -8,8 +8,9 @@ import android.view.WindowManager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.pruebas.protesta_social.R;
+import com.pruebas.protesta_social.logic.Principal;
 
-public class pantalla_carga extends AppCompatActivity {
+public class Pantalla_carga extends AppCompatActivity {
 
     private final int DURACION = 4000;
 
@@ -23,7 +24,7 @@ public class pantalla_carga extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(pantalla_carga.this, Login.class);
+                Intent intent = new Intent(Pantalla_carga.this, Login.class);
                 startActivity(intent);
                 finish();
             }

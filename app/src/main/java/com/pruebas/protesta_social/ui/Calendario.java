@@ -25,7 +25,5 @@ public class Calendario extends AppCompatActivity {
         setContentView(R.layout.activity_calendario);
     }
 
-
-
 }
 
