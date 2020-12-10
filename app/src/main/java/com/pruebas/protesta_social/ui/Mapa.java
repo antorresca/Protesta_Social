@@ -67,7 +67,15 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback {
                     mMap.addMarker(new MarkerOptions().position(g).snippet(l.toString()).title(l.getNombre()).icon(BitmapDescriptorFactory.fromResource(R.drawable.regroup)));
                 }
                 else{
-                    mMap.addMarker(new MarkerOptions().position(g).snippet(l.toString()).title(l.getNombre()).icon(BitmapDescriptorFactory.fromResource(R.drawable.hospital)));
+                    if(l.toString().contains("Salud") || l.toString().contains("Clinica") || l.toString().contains("Instituto")){
+                        mMap.addMarker(new MarkerOptions().position(g).snippet(l.toString()).title(l.getNombre()).icon(BitmapDescriptorFactory.fromResource(R.drawable.hospital)));
+                    }else{
+                        if(l.getNombre().contains("Emergencia")){
+                            mMap.addMarker(new MarkerOptions().position(g).snippet(l.toString()).title(l.getNombre()));
+                        }else{
+                            mMap.addMarker(new MarkerOptions().position(g).snippet(l.toString()).title(l.getNombre()).icon(BitmapDescriptorFactory.fromResource(R.drawable.regroup)));
+                        }
+                    }
                 }
 
             }catch (Exception e){

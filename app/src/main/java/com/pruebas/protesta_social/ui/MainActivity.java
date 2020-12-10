@@ -75,6 +75,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        if(CodigoDelGrupo.equals("Derechos-Humanos")){
+            FirebaseDatabase.getInstance().getReference().child("Ayuda").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    String Nombre = snapshot.child("nombre").getValue().toString();
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }
+
         btnArengas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
