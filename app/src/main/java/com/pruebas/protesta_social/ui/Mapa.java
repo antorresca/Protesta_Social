@@ -86,6 +86,6 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback {
         }
         mMap.setMyLocationEnabled(true);
         mMap.addMarker(new MarkerOptions().position(a).snippet("Derechos Humanos").title("DDHH").icon(BitmapDescriptorFactory.fromResource(R.drawable.pajaro)));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(a,10));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(a,15));
     }
 }
