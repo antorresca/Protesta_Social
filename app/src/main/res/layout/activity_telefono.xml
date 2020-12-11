@@ -7,6 +7,8 @@
     android:background="@color/white"
     tools:context=".ui.Telefono">
 
+
+
     <EditText
         android:id="@+id/TxtTel"
         android:layout_width="333dp"
@@ -23,11 +25,11 @@
         android:id="@+id/btnSigui"
         android:layout_width="332dp"
         android:layout_height="44dp"
-        android:layout_marginBottom="260dp"
+        android:layout_marginBottom="16dp"
         android:text="Siguiente"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView9"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -52,4 +54,18 @@
         app:layout_constraintBottom_toTopOf="@+id/TxtTel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="236dp"
+        android:layout_height="73dp"
+        android:layout_marginBottom="176dp"
+        android:text="Advertencia: \n Se le solicitará su ubicacion actual, esta solamente se usará para que pueda ser enviada en caso de emergencia"
+        android:textColor="@color/rojo"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

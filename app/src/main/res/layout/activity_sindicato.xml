@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="346dp"
-        android:layout_height="146dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="200dp"
@@ -46,6 +46,14 @@
             android:gravity="center_horizontal"
             android:text="Siguiente"
             android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="73dp"
+            android:text="Advertencia: \n Se le solicitará su ubicacion actual, esta solamente se usará para que pueda ser enviada en caso de emergencia"
+            android:textColor="@color/rojo"
+            android:textSize="10sp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

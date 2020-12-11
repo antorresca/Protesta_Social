@@ -89,10 +89,7 @@ public class Principal {
                                 places.setLugares(lc);
                             }
                         }
-                        Log.e("Holaaaa","Toy funcionando xd No explote xd");
-                        Log.e("Hey",String.valueOf(a)+Nom);
                     }catch (Exception e){
-                        Log.e("Holaaaa","No toy funcionando xd Explote xd"+e);
                         break;
                     }
                 }
@@ -124,8 +121,8 @@ public class Principal {
             return persona;
     }
 
-    public static void Guardar_Grupo(String Nombre){
-        CodigoDelGrupo = Principal.CrearGrupo(Nombre);
+    public static void Guardar_Grupo(String Nombre,String codigo){
+        CodigoDelGrupo = codigo;
         Grupo g = new Grupo(CodigoDelGrupo,NombreDeUsuario);
         Referencia.child("Persona").child(NombreDeUsuario).child("grupo").setValue(g.getCodigo());
         Referencia.child("Grupo").child(g.getCodigo()).setValue(g);

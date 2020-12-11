@@ -70,31 +70,18 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback {
                     if(l.toString().contains("Salud") || l.toString().contains("Clinica") || l.toString().contains("Instituto")){
                         mMap.addMarker(new MarkerOptions().position(g).snippet(l.toString()).title(l.getNombre()).icon(BitmapDescriptorFactory.fromResource(R.drawable.hospital)));
                     }else{
-                        if(l.getNombre().contains("Emergencia")){
-                            mMap.addMarker(new MarkerOptions().position(g).snippet(l.toString()).title(l.getNombre()));
+                        if(l.toString().contains("Emergencia") || l.getNombre().contains("Emergencia") ){
+                            mMap.addMarker(new MarkerOptions().position(g).snippet(l.toString()).title(l.getNombre()).icon(BitmapDescriptorFactory.fromResource(R.drawable.peligro)));
                         }else{
                             mMap.addMarker(new MarkerOptions().position(g).snippet(l.toString()).title(l.getNombre()).icon(BitmapDescriptorFactory.fromResource(R.drawable.regroup)));
                         }
                     }
                 }
-
             }catch (Exception e){
                 mMap.addMarker(new MarkerOptions().position(g).title(l.getNombre()).icon(BitmapDescriptorFactory.fromResource(R.drawable.peligro)).snippet(l.toString()));
             }
         }
         mMap.addMarker(new MarkerOptions().position(a).snippet("Derechos Humanos").title("DDHH").icon(BitmapDescriptorFactory.fromResource(R.drawable.pajaro)));
-
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
-        mMap.setMyLocationEnabled(true);
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(a,15));
 
     }

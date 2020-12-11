@@ -71,6 +71,9 @@ public class Registro extends AppCompatActivity {
                 if (Name.equals("") || NombreDeUsuario.equals("") || Password.equals("") || Opcion.equals("Seleccione")) {
                     Validacion(Name,NombreDeUsuario,Password,Opcion);
                 } else {
+                    if(Password.length()<8){
+                        PassI.setError("Mínimo 8 caracteres");
+                    }else{
                     usuarios.child("Persona").child(NombreDeUsuario).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -84,7 +87,7 @@ public class Registro extends AppCompatActivity {
                         public void onCancelled(@NonNull DatabaseError error) {
                         }
                     });
-                }
+                }}
             }
         });
     }

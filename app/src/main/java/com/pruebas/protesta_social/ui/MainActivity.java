@@ -42,6 +42,7 @@ import java.util.ArrayList;
 import static com.pruebas.protesta_social.logic.Principal.places;
 import static com.pruebas.protesta_social.ui.Login.*;
 
+
 public class MainActivity extends AppCompatActivity {
 
     private Button btnMapa, btnArengas, btnTips, btnPanico, btnCalendario, btnChat;
@@ -158,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
                 Principal.Emergencia();
                 if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 }
+                try{
                 LocationManager ubicacion = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
                 Location l = ubicacion.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                 if(ubicacion!=null && l!=null){
@@ -169,6 +171,11 @@ public class MainActivity extends AppCompatActivity {
                 ayuda.setEstado(true);
                 FirebaseDatabase.getInstance().getReference().child("Ayuda").setValue(ayuda);
                 Toast.makeText(MainActivity.this, "Tu ubicacion fue compartida con personal capacitado", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(MainActivity.this,"Es necesario acceder a tu ubicacion actual, activala el gps de tu dispositivo",Toast.LENGTH_SHORT).show();
+                }}
+                catch(Exception e){
+                    Toast.makeText(MainActivity.this,"Es necesario que *Atenas* acceda a tu ubicacion actual, concedele el permiso desde tu dispositivo",Toast.LENGTH_SHORT).show();
                 }
             }
         });

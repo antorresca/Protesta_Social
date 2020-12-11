@@ -52,7 +52,11 @@ public class Chat extends AppCompatActivity {
         Comunicador.setText(NombreDeUsuario);
         CodigoDelGrupo = Principal.Obtener_Codigo();
         try{
-            Titulo.setText("Codigo Grupo : "+CodigoDelGrupo);
+            if(CodigoDelGrupo==null || CodigoDelGrupo==""){
+                Titulo.setText("Recarga el chat para obtener el codigo");
+            }else {
+                Titulo.setText("Codigo Grupo : " + CodigoDelGrupo);
+            }
         }catch (Exception e){
             Titulo.setText("Error");
         }
