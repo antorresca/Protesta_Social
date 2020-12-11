@@ -35,6 +35,11 @@ public class Punto_De_Encuentro extends Lugar{
     }
 
     @Override
+    public String Informacion() {
+        return "La hora de encuentro es a las "+Hora+" se puntual :)";
+    }
+
+    @Override
     public String toString() {
         return "Encuentro "+ Hora +" "+Sindicato;
     }

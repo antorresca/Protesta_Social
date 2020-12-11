@@ -24,6 +24,12 @@ public class Centro_De_Salud extends Lugar{
     }
 
     @Override
+    public String Informacion() {
+        return "Para comunicarse llame al "+Telefono+" si es un caso" +
+                " de emergencia se recomienda llamar al 123";
+    }
+
+    @Override
     public String toString() {
         return "Centro De Salud Tel=" + Telefono;
     }

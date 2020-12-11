@@ -44,8 +44,14 @@ public class Lugar {
         Nombre = nombre;
     }
 
+    public String Informacion(){
+        return "Este lugar esta ubicado en "+Coordenadas;
+    }
+
     @Override
     public String toString() {
         return Nombre+" \nCoordenadas:"+ Coordenadas.toString()+"\nEstado:"+Estado;
     }
 }
+
+

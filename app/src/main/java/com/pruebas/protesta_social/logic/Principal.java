@@ -116,10 +116,11 @@ public class Principal {
 
     public static Derechos_Humanos Crear_DDHH(String Name, String Usuario, String Password){
             Derechos_Humanos persona = new Derechos_Humanos();
+            final String Grupo = "Derechos-Humanos";
             persona.setNombre(Name);
             persona.setUsuario(Usuario);
             persona.setPassword(Password);
-            persona.setGrupo("Derechos-Humanos");
+            persona.setGrupo(Grupo);
             return persona;
     }
 

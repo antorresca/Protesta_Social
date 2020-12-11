@@ -47,7 +47,7 @@ public class Sindicato extends AppCompatActivity {
         Sig.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Sindicato.equals("")){
+                if(Sindicato.equals("") || Sindicato.equals("Seleccione")){
                     Toast.makeText(Sindicato.this,"Seleccione sindicato",Toast.LENGTH_SHORT).show();
                 }else{
                     FirebaseDatabase.getInstance().getReference().child("Persona").child(NombreDeUsuario).child("sindicato").setValue(Sindicato);
