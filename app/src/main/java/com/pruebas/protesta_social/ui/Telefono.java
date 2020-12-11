@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.google.firebase.database.FirebaseDatabase;
 import com.pruebas.protesta_social.R;
 
+import static com.pruebas.protesta_social.ui.Login.CodigoDelGrupo;
 import static com.pruebas.protesta_social.ui.Login.NombreDeUsuario;
 
 public class Telefono extends AppCompatActivity {
@@ -27,6 +28,7 @@ public class Telefono extends AppCompatActivity {
 
         Tel = findViewById(R.id.TxtTel);
         Sigui = findViewById(R.id.btnSigui);
+        CodigoDelGrupo = "Derechos-Humanos";
 
         Sigui.setOnClickListener(new View.OnClickListener() {
             @Override

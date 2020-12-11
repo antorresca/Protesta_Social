@@ -39,6 +39,7 @@ import com.pruebas.protesta_social.objetos.Punto_De_Encuentro;
 
 import java.util.ArrayList;
 
+import static com.pruebas.protesta_social.logic.Principal.places;
 import static com.pruebas.protesta_social.ui.Login.*;
 
 public class MainActivity extends AppCompatActivity {
@@ -79,7 +80,16 @@ public class MainActivity extends AppCompatActivity {
             FirebaseDatabase.getInstance().getReference().child("Ayuda").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    String Nombre = snapshot.child("nombre").getValue().toString();
+                    try {
+                        Log.e("Hola","Legue aca xd");
+                        String Nombre = snapshot.child("nombre").getValue().toString();
+                        double Lat = Double.parseDouble(snapshot.child("coordenadas").child("latitude").getValue().toString());
+                        double Lon = Double.parseDouble(snapshot.child("coordenadas").child("longitude").getValue().toString());
+                        Lugar Emergencia = new Lugar(Lat, Lon, "Emergencia " + Nombre, true);
+                        places.setLugares(Emergencia);
+                    }catch(Exception e){
+                        Log.e("Hola","Jueputaaa "+e);
+                    }
                 }
 
                 @Override

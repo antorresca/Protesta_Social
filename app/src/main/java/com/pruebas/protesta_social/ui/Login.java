@@ -22,6 +22,8 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         Principal.Guardar_lugares();
+        CodigoDelGrupo = "";
+        NombreDeUsuario = "";
 
         btnRegistro = (Button) findViewById(R.id.btnRegister);
         btnIngresar = (Button) findViewById(R.id.btnIngreso);
