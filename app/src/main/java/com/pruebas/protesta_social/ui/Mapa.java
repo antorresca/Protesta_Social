@@ -60,30 +60,32 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback {
 
         mMap = googleMap;
         mMap.getUiSettings().setZoomControlsEnabled(true);
-        for(Lugar l : lugares1.getLugares()){
+        for (Lugar l : lugares1.getLugares()) {
             LatLng g = l.getCoordenadas();
-            try{
-                if(l.toString().contains("Encuentro")){
+            try {
+                if (l.toString().contains("Encuentro")) {
                     mMap.addMarker(new MarkerOptions().position(g).snippet(l.toString()).title(l.getNombre()).icon(BitmapDescriptorFactory.fromResource(R.drawable.regroup)));
-                }
-                else{
-                    if(l.toString().contains("Salud") || l.toString().contains("Clinica") || l.toString().contains("Instituto")){
+                } else {
+                    if (l.toString().contains("Salud") || l.toString().contains("Clinica") || l.toString().contains("Instituto")) {
                         mMap.addMarker(new MarkerOptions().position(g).snippet(l.toString()).title(l.getNombre()).icon(BitmapDescriptorFactory.fromResource(R.drawable.hospital)));
-                    }else{
-                        if(l.toString().contains("Emergencia") || l.getNombre().contains("Emergencia") ){
+                    } else {
+                        if (l.toString().contains("Emergencia") || l.getNombre().contains("Emergencia")) {
                             mMap.addMarker(new MarkerOptions().position(g).snippet(l.toString()).title(l.getNombre()).icon(BitmapDescriptorFactory.fromResource(R.drawable.peligro)));
-                        }else{
+                        } else {
                             mMap.addMarker(new MarkerOptions().position(g).snippet(l.toString()).title(l.getNombre()).icon(BitmapDescriptorFactory.fromResource(R.drawable.regroup)));
                         }
                     }
                 }
-            }catch (Exception e){
+            } catch (Exception e) {
                 mMap.addMarker(new MarkerOptions().position(g).title(l.getNombre()).icon(BitmapDescriptorFactory.fromResource(R.drawable.peligro)).snippet(l.toString()));
             }
         }
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        mMap.setMyLocationEnabled(true);
         mMap.addMarker(new MarkerOptions().position(a).snippet("Derechos Humanos").title("DDHH").icon(BitmapDescriptorFactory.fromResource(R.drawable.pajaro)));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(a,15));
-
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(a,10));
     }
-
 }

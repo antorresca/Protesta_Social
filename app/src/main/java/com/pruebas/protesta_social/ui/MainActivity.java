@@ -158,24 +158,30 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Principal.Emergencia();
                 if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    Log.e("P","jummm");
                 }
                 try{
                 LocationManager ubicacion = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
                 Location l = ubicacion.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                if(ubicacion!=null && l!=null){
+                Log.e("Hola","Aca");
+                if(ubicacion==null){Log.e("H","Es u");}
+                if(l==null){Log.e("H","Es l");}
                 double latitude = l.getLatitude();
                 double longitud = l.getLongitude();
                 Lugar ayuda = new Lugar();
+                Log.e("Hola","Aca2");
                 ayuda.setCoordenadas(latitude,longitud);
                 ayuda.setNombre(NombreDeUsuario);
                 ayuda.setEstado(true);
                 FirebaseDatabase.getInstance().getReference().child("Ayuda").setValue(ayuda);
                 Toast.makeText(MainActivity.this, "Tu ubicacion fue compartida con personal capacitado", Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(MainActivity.this,"Es necesario acceder a tu ubicacion actual, activala el gps de tu dispositivo",Toast.LENGTH_SHORT).show();
-                }}
+                /*}else{
+                    Log.e("Hola","Aca3");
+                    Toast.makeText(MainActivity.this,"Es necesario acceder a tu ubicacion actual, activala el GPS de tu dispositivo",Toast.LENGTH_SHORT).show();
+                }*/}
                 catch(Exception e){
-                    Toast.makeText(MainActivity.this,"Es necesario que *Atenas* acceda a tu ubicacion actual, concedele el permiso desde tu dispositivo",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,"Es necesario que ATENEA acceda a tu ubicacion actual, concedele el permiso desde tu dispositivo",Toast.LENGTH_SHORT).show();
+                    Log.e("Y","no entiendos"+e);
                 }
             }
         });
